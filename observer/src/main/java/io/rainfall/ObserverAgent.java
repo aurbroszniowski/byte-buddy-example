@@ -22,6 +22,7 @@ public class ObserverAgent {
     System.out.printf("Starting ObserverAgent\n");
 
     final AgentBuilder agentBuilder = new AgentBuilder.Default()
+        .disableClassFormatChanges()
         .with(AgentBuilder.RedefinitionStrategy.RETRANSFORMATION)
         .type((ElementMatchers.nameContains("io.rainfall.InstrumentedClass")))
         .transform((builder, typeDescription, classLoader, module) -> builder
